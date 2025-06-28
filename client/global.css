@@ -1,0 +1,431 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* TailwindV4 theme and design tokens - NinaivuAI Theme */
+@theme {
+  /* NinaivuAI Fonts */
+  --font-sans:
+    "Inter", "Noto Sans Tamil", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-tamil:
+    "Noto Sans Tamil", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-primary: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  /* NinaivuAI Blue-Based Color Palette */
+  --color-deep-blue: 220 100% 30%;
+  --color-bright-blue: 210 100% 55%;
+  --color-light-blue: 210 50% 95%;
+  --color-sky-blue: 200 80% 85%;
+  --color-calm-grey: 220 10% 90%;
+  --color-blue-emotion: 210 70% 75%;
+  --color-teal-accent: 180 65% 60%;
+
+  /* Core Theme Colors - Modern Blue */
+  --color-background: 220 40% 98%;
+  --color-foreground: 220 20% 15%;
+
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 220 20% 15%;
+
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 220 20% 15%;
+
+  --color-primary: 220 100% 30%;
+  --color-primary-foreground: 220 40% 98%;
+
+  --color-secondary: 210 100% 55%;
+  --color-secondary-foreground: 220 40% 98%;
+
+  --color-muted: 220 30% 96%;
+  --color-muted-foreground: 220 10% 45%;
+
+  --color-accent: 210 50% 95%;
+  --color-accent-foreground: 220 20% 15%;
+
+  --color-destructive: 0 84% 60%;
+  --color-destructive-foreground: 220 40% 98%;
+
+  --color-border: 220 20% 90%;
+  --color-input: 220 25% 96%;
+  --color-ring: 220 100% 30%;
+
+  /* Navigation specific colors */
+  --color-nav-background: 0 0% 100%;
+  --color-nav-foreground: 220 20% 15%;
+  --color-nav-active: 210 100% 55%;
+
+  /* Blue emotion colors */
+  --color-emotion-happy: 210 100% 55%;
+  --color-emotion-calm: 210 70% 75%;
+  --color-emotion-spiritual: 200 80% 85%;
+  --color-emotion-nostalgic: 180 65% 60%;
+  --color-emotion-love: 210 70% 75%;
+
+  /* Modern Blue Effects */
+  --modern-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+  --blue-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
+  --blue-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 640px) {
+    max-width: 640px;
+    padding-inline: 2rem;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+}
+
+/* NinaivuAI Typography with modern blue theme */
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--color-background)) 0%,
+    hsl(var(--color-light-blue)) 50%,
+    hsl(var(--color-sky-blue)) 100%
+  );
+  color: hsl(var(--color-foreground));
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tamil text specific styling */
+.font-tamil {
+  font-family: var(--font-tamil);
+}
+
+/* NinaivuAI Modern Blue Components */
+.cultural-glass {
+  background: linear-gradient(
+    145deg,
+    rgba(240, 248, 255, 0.9) 0%,
+    rgba(230, 245, 255, 0.8) 100%
+  );
+  backdrop-filter: blur(15px) saturate(120%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: var(--modern-shadow);
+}
+
+.warm-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(240, 248, 255, 0.9) 100%
+  );
+  backdrop-filter: blur(10px) saturate(110%);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  box-shadow:
+    var(--blue-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.cultural-button {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(240, 248, 255, 0.8) 100%
+  );
+  backdrop-filter: blur(10px) saturate(110%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow:
+    var(--modern-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cultural-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    var(--blue-shadow),
+    var(--blue-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.blue-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--color-primary)) 0%,
+    hsl(var(--color-secondary)) 100%
+  );
+  box-shadow:
+    0 8px 32px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* High contrast icon background for better visibility */
+.icon-bg-high-contrast {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+  box-shadow:
+    0 8px 32px rgba(30, 64, 175, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Ensure all icons are visible with proper contrast */
+.icon-bg-high-contrast svg {
+  color: white !important;
+  stroke: white !important;
+  fill: none !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Alternative dark icon background for light contexts */
+.icon-bg-dark {
+  background: linear-gradient(135deg, #1e293b 0%, #374151 100%) !important;
+  box-shadow:
+    0 8px 32px rgba(30, 41, 59, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.icon-bg-dark svg {
+  color: white !important;
+  stroke: white !important;
+  fill: none !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Force icon visibility in feature cards */
+.feature-card-icon {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(30, 64, 175, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.feature-card-icon svg {
+  color: white !important;
+  stroke: white !important;
+  fill: none !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  stroke-width: 2.5 !important;
+}
+
+/* Ensure Dashboard feature grid SVGs are always visible */
+.grid .warm-card [style*="linear-gradient"] svg,
+.grid .warm-card div[style*="background"] svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  color: #ffffff !important;
+}
+
+/* Lotus wave animation */
+@keyframes lotus-bloom {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+.lotus-animation {
+  animation: lotus-bloom 4s ease-in-out infinite;
+}
+
+/* Blue ripple effect */
+.warm-ripple:active::before {
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.4) 0%,
+    transparent 70%
+  );
+}
+
+/* Comprehensive icon visibility fixes */
+svg[data-lucide],
+.lucide,
+[data-lucide] {
+  stroke: currentColor !important;
+  fill: none !important;
+  stroke-width: 2.5 !important;
+}
+
+/* Force maximum visibility for icons in blue backgrounds */
+.icon-bg-high-contrast svg,
+.feature-card-icon svg,
+.blue-gradient-bg svg,
+[style*="linear-gradient(135deg, #1e40af"] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  stroke-width: 3 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Specific targeting for feature cards */
+.warm-card svg,
+.cultural-button svg {
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+/* Dashboard feature grid icon fix */
+.grid .warm-card svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  stroke-width: 3 !important;
+}
+
+/* Bottom navigation icon visibility */
+.cultural-glass svg {
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+/* Ensure icons are always visible with high contrast */
+[class*="bg-gradient"] svg,
+[style*="background: linear-gradient"] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  stroke-width: 3 !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Feature icon specific styling */
+.feature-icon-container .feature-icon,
+.feature-icon-container svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  stroke-width: 3 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Override any conflicting styles */
+.feature-icon {
+  color: white !important;
+  stroke: white !important;
+  fill: none !important;
+}
+
+/* Smooth animations for touch interfaces */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom scrollbar for mobile */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--color-muted));
+  border-radius: 2px;
+}
+
+/* Safe area handling for mobile devices */
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Floating action button animation */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.3s,
+    height 0.3s;
+}
+
+.ripple-effect:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Voice waveform animation (for future use) */
+@keyframes waveform {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
+.waveform-bar {
+  animation: waveform 1s ease-in-out infinite;
+}
+
+.waveform-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.waveform-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.waveform-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.waveform-bar:nth-child(5) {
+  animation-delay: 0.4s;
+}
